@@ -48,7 +48,7 @@ The following parameters can be used with the script:
 
     -h, --help            show this help message and exit  
     -i input_file, --Input input_file: wikipedia corpus used as input file (.xml.bz2-file)
-    -p PREPROCESSED, --Preprocessed PREPROCESSED: file of preprocessed wikipedia corpus (.txt). If this file already exists, it will be used for model training. Else it will be created from the input file  
+    -p preprocessed_file, --Preprocessed preprocessed_file: file of preprocessed wikipedia corpus (.txt). If this file already exists, it will be used for model training. Else it will be created from the input file  
     -o output_file, --Output output_file: output file for trained model (.kv-file)  
     -w number_of_workers, --Workers number_of_workers: number of workers (default=number of cpu cores - 1)  
     -d number_of_dimensions, --Dimensions number_of_dimensions: number of dimenions of the word2vec model (default=500)  
