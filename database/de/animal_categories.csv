@@ -1,0 +1,389 @@
+category,word
+Africa,Affe
+Africa,Antilope
+Africa,Büffel
+Africa,Chamäleon
+Africa,Dromedar
+Africa,Elefant
+Africa,Erdmännchen
+Africa,Flusspferd
+Africa,Gazelle
+Africa,Gepard
+Africa,Giraffe
+Africa,Gnu
+Africa,Gorilla
+Africa,Hyäne
+Africa,Kamel
+Africa,Kobra
+Africa,Lemur
+Africa,Leopard
+Africa,Löwe
+Africa,Nashorn
+Africa,Nilpferd
+Africa,Panther
+Africa,Rhinozeros
+Africa,Schimpanse
+Africa,Schakal
+Africa,Strauß
+Africa,Tiger
+Africa,Warzenschwein
+Africa,Zebra
+Australia,Beuteteufel
+Australia,Buschteufel
+Australia,Emu
+Australia,Känguru
+Australia,Kiwi
+Australia,Opossum
+Australia,Schnabeltier
+Australia,Wallaby
+Australia,Wombat
+Arctic/Far North,Eisbär
+Arctic/Far North,Eselspinguin
+Arctic/Far North,Karibu
+Arctic/Far North,Moschusochse
+Arctic/Far North,Pinguin
+Arctic/Far North,Polarbär
+Arctic/Far North,Rentier
+Arctic/Far North,Robbe
+Arctic/Far North,Schneefuchs
+Arctic/Far North,Schneelöwe
+Arctic/Far North,Seelöwe
+Arctic/Far North,Seehund
+Arctic/Far North,Seebär
+Arctic/Far North,Walross
+Farm,Esel
+Farm,Frettchen
+Farm,Fasan
+Farm,Gans
+Farm,Hahn
+Farm,Henne
+Farm,Huhn
+Farm,Lamm
+Farm,Kücken
+Farm,Kalb
+Farm,Kuh
+Farm,Maultier
+Farm,Pferd
+Farm,Pony
+Farm,Rind
+Farm,Sau
+Farm,Schaf
+Farm,Schwein
+Farm,Truthahn
+Farm,Wachtel
+Farm,Ziege
+North America,Bär
+North America,Berglöwe
+North America,Braunbär
+North America,Biber
+North America,Dachs
+North America,Eber
+North America,Eichhörnchen
+North America,Elch
+North America,Fuchs
+North America,Grizzlybär
+North America,Hase
+North America,Hirsch
+North America,Jaguar
+North America,Karibu
+North America,Karnikel
+North America,Marder
+North America,Kaninchen
+North America,Luchs
+North America,Puma
+North America,Reh
+North America,Rotluchs
+North America,Stinktier
+North America,Streifenhörnchen
+North America,Waschbär
+North America,Wildschwein
+North America,Wolf
+Water,Alligator
+Water,Auster
+Water,Bisamratte
+Water,Delfin
+Water,Fisch
+Water,Flamingo
+Water,Frosch
+Water,Hecht
+Water,Hering
+Water,Hai
+Water,Hummer
+Water,Kaulquappe
+Water,Krabbe
+Water,Krebs
+Water,Krokodil
+Water,Kröte
+Water,Kalmar
+Water,Karpfen
+Water,Manatis
+Water,Miesmuschel
+Water,Molch
+Water,Muschel
+Water,Oktopus
+Water,Otter
+Water,Pinguin
+Water,Qualle
+Water,Robbe
+Water,Rotbarsch
+Water,Seeigel
+Water,Seekuh
+Water,Seelöwe
+Water,Seemöwe
+Water,Seestern
+Water,Seeschlange
+Water,Seeungeheuer
+Water,Scholle
+Water,Schwan
+Water,Tintenfisch
+Water,Salamander
+Water,Schildkröte
+Water,Schnabeltier
+Water,Seehund
+Water,Seepferd
+Water,Seebär
+Water,Wal
+Beasts of Burden,Affe
+Beasts of Burden,Dromedar
+Beasts of Burden,Kamel
+Beasts of Burden,Lama
+Beasts of Burden,Ochse
+Beasts of Burden,Pferd
+Beasts of Burden,Stier
+Fur,Biber
+Fur,Chinchilla
+Fur,Fischotter
+Fur,Fuchs
+Fur,Schneefuchs
+Fur,Hase
+Fur,Kaninchen
+Fur,Karnikel
+Fur,Nerz
+Goat,Gämse
+Goat,Ziege
+Pets,Dackel
+Pets,Gerbil
+Pets,Goldhamster
+Pets,Golden Retriever
+Pets,Hamster
+Pets,Hase
+Pets,Hund
+Pets,Kakadu
+Pets,Kaninchen
+Pets,Karnikel
+Pets,Kater
+Pets,Katze
+Pets,Kanarienvogel
+Pets,Maus
+Pets,Meerschweinchen
+Pets,Minischwein
+Pets,Papagei
+Pets,Wellensittich
+Pets,Welpe
+Bird,Adler
+Bird,Amsel
+Bird,Ara
+Bird,Auerhuhn
+Bird,Blaukehlchen
+Bird,Blaumeise
+Bird,Buchfink
+Bird,Buntspecht
+Bird,Bussard
+Bird,Drossel
+Bird,Elster
+Bird,Ente
+Bird,Eule
+Bird,Fasan
+Bird,Falke
+Bird,Fink
+Bird,Flamingo
+Bird,Fledermaus
+Bird,Gans
+Bird,Geier
+Bird,Grünspecht
+Bird,Habicht
+Bird,Hahn
+Bird,Harpyie
+Bird,Henne
+Bird,Huhn
+Bird,Kakadu
+Bird,Kanarienvogel
+Bird,Kiwi
+Bird,Kohlmeise
+Bird,Kondor
+Bird,Krähe
+Bird,Kücken
+Bird,Kuckuck
+Bird,Meise
+Bird,Milan
+Bird,Möwe
+Bird,Papagei
+Bird,Pelikan
+Bird,Pinguin
+Bird,Rabe
+Bird,Rebhuhn
+Bird,Reiher
+Bird,Rotkehlchen
+Bird,Rotschwanz
+Bird,Schwalbe
+Bird,Schwan
+Bird,Schwanzmeise
+Bird,Sittich
+Bird,Spatz
+Bird,Specht
+Bird,Sperber
+Bird,Sperling
+Bird,Star
+Bird,Storch
+Bird,Strauß
+Bird,Taube
+Bird,Tukan
+Bird,Turmfalke
+Bird,Uhu
+Bird,Vogel
+Bird,Wachtel
+Bird,Wellensittich
+Bird,Zaunkönig
+Bovine,Bison
+Bovine,Büffel
+Bovine,Kalb
+Bovine,Kuh
+Bovine,Moschusochse
+Bovine,Ochse
+Bovine,Rind
+Bovine,Stier
+Bovine,Wisent
+Bovine,Yak
+Canine,Fuchs
+Canine,Schneefuchs
+Canine,Hund
+Canine,Kojote
+Canine,Schakal
+Canine,Wolf
+Deer,Antilope
+Deer,Elch
+Deer,Gazelle
+Deer,Gnu
+Deer,Hirsch
+Deer,Karibu
+Deer,Reh
+Deer,Rentier
+Feline,Gepard
+Feline,Jaguar
+Feline,Kater
+Feline,Katze
+Feline,Leopard
+Feline,Löwe
+Feline,Luchs
+Feline,Ozelot
+Feline,Panther
+Feline,Puma
+Feline,Rotluchs
+Feline,Schneelöwe
+Feline,Tiger
+Fish,Barsch
+Fish,Dorade
+Fish,Forelle
+Fish,Goldfisch
+Fish,Guppy
+Fish,Hai
+Fish,Lachs
+Fish,Seebarsch
+Fish,Seelachs
+Fish,Zitteraal
+Insect,Ameise
+Insect,Biene
+Insect,Blattlaus
+Insect,Falter
+Insect,Fliege
+Insect,Floh
+Insect,Gottesanbeterin
+Insect,Grashüpfer
+Insect,Grille
+Insect,Heuschrecke
+Insect,Hirschkäfer
+Insect,Hornisse
+Insect,Hummel
+Insect,Insekt
+Insect,Käfer
+Insect,Kellerassel
+Insect,Laus
+Insect,Made
+Insect,Maikäfer
+Insect,Marienkäfer
+Insect,Mücke
+Insect,Raupe
+Insect,Regenwurm
+Insect,Schabe
+Insect,Schmetterling
+Insect,Spinne
+Insect,Wanze
+Insect,Wespe
+Insectivore,Ameisenbär
+Insectivore,Erdferkel
+Insectivore,Igel
+Insectivore,Maulwurf
+Mollusca,Schnecke
+Primate,Affe
+Primate,Gibbon
+Primate,Gorilla
+Primate,Lemur
+Primate,Maulwurf
+Primate,Mensch
+Primate,Menschenaffe
+Primate,Orang-Utan
+Primate,Pavian
+Primate,Schimpanse
+Primate,Weißbüschelaffe
+Rabbit,Hase
+Rabbit,Kaninchen
+Rabbit,Karnikel
+Reptile/Amphibian,Alligator
+Reptile/Amphibian,Chamäleon
+Reptile/Amphibian,Eidechse
+Reptile/Amphibian,Feuersalamander
+Reptile/Amphibian,Frosch
+Reptile/Amphibian,Gecko
+Reptile/Amphibian,Kaulquappe
+Reptile/Amphibian,Kriechtier
+Reptile/Amphibian,Krokodil
+Reptile/Amphibian,Kröte
+Reptile/Amphibian,Leguan
+Reptile/Amphibian,Lurch
+Reptile/Amphibian,Schildkröte
+Reptile/Amphibian,Schlange
+Reptile/Amphibian,Seeschlange
+Rodent,Biber
+Rodent,Bisamratte
+Rodent,Chinchilla
+Rodent,Eichhörnchen
+Rodent,Fischotter
+Rodent,Gerbil
+Rodent,Goldhamster
+Rodent,Hamster
+Rodent,Igel
+Rodent,Maulwurf
+Rodent,Maus
+Rodent,Meerschweinchen
+Rodent,Murmeltier
+Rodent,Nacktmull
+Rodent,Ratte
+Rodent,Stachelschwein
+Rodent,Streifenhörnchen
+Rodent,Wühlmaus
+Rodent,Ziesel
+Weasel,Dachs
+Weasel,Frettchen
+Weasel,Iltis
+Weasel,Marder
+Weasel,Nerz
+Weasel,Otter
+Weasel,Stinktier
+Weasel,Wiesel
+Extincted,Dinosaurier
+Extincted,Mammut
+Asia,Panda
+Asia,Tapir
+South America,Faultier
+South America,Tapir
+South America,Nasenbär
