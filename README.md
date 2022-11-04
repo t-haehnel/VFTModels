@@ -40,8 +40,7 @@ When running the modeltraining_word2vec.py script you have to specify the follow
 
 Now, to train a new Semantic Relatedness Model, execute the modeltraining_word2vec.py with python: (replace the file names accordingly)
 
-    python modeltraining_word2vec.py -i dewiki-20221020-pages-articles.xml.bz2 -p dewiki-20221020-pages-articles.txt -o
-dewiki-20221020-pages-articles.kv
+    python modeltraining_word2vec.py -i dewiki-20221020-pages-articles.xml.bz2 -p dewiki-20221020-pages-articles.txt -o dewiki-20221020-pages-articles.kv
     
 The script will need a few hours of computation time and print some progress after creating the preprocessed file.
 
