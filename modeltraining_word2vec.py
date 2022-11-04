@@ -37,7 +37,7 @@ parser.add_argument("-i", "--Input", help="wikipedia corpus used as input file (
                     required=True)
 parser.add_argument("-p", "--Preprocessed", help="file of preprocessed wikipedia corpus (.txt). If this file already "
                                                  "exists, it will be used for model training. Else it will be created"
-                                                 " from the input file", required=True)
+                                                 " from the input file", metavar="preprocessed_file", required=True)
 parser.add_argument("-o", "--Output", help="output file for trained model (.kv-file)", metavar="output_file",
                     required=True)
 parser.add_argument("-w", "--Workers", help="number of workers (default=number of cpu cores - 1)",
