@@ -6,6 +6,6 @@ swish
 search
 salami
 salad
-Senegal
-songbird
-sing
+Spain
+Sweden
+Switzerland
