@@ -26,23 +26,23 @@ class SentencesCorpus:
 
 # Command Line Argument Parsing - Initialization
 parser = argparse.ArgumentParser(prog="Word2Vec Model Trainer for Wikipedia Corpus",
-                                 description="This script trains a word2vec model based on a wikipedia text corpus ("
-                                             "prodived as .xml.bz2-file) --- The wikipedia corpus can be obtained "
+                                 description="This script trains a word2vec model based on a Wikipedia text corpus ("
+                                             "prodived as .xml.bz2-file) --- The Wikipedia corpus can be obtained "
                                              "here: "
                                              "https://dumps.wikimedia.org/backup-index.html --- Example: python "
                                              "modeltraining_word2vec.py -i dewiki-20221020-pages-articles.xml.bz2 -p "
                                              "dewiki-20221020-pages-articles.txt -o "
                                              "dewiki-20221020-pages-articles.kv")
-parser.add_argument("-i", "--Input", help="wikipedia corpus used as input file (.xml.bz2-file)", metavar="input_file",
+parser.add_argument("-i", "--Input", help="Wikipedia corpus used as input file (.xml.bz2-file)", metavar="input_file",
                     required=True)
-parser.add_argument("-p", "--Preprocessed", help="file of preprocessed wikipedia corpus (.txt). If this file already "
+parser.add_argument("-p", "--Preprocessed", help="file of preprocessed Wikipedia corpus (.txt). If this file already "
                                                  "exists, it will be used for model training. Else it will be created"
                                                  " from the input file", metavar="preprocessed_file", required=True)
 parser.add_argument("-o", "--Output", help="output file for trained model (.kv-file)", metavar="output_file",
                     required=True)
-parser.add_argument("-w", "--Workers", help="number of workers (default=number of cpu cores - 1)",
+parser.add_argument("-w", "--Workers", help="number of workers (default=number of CPU cores - 1)",
                     metavar="number_of_workers", type=int)
-parser.add_argument("-d", "--Dimensions", help="number of dimenions of the word2vec model (default=500)",
+parser.add_argument("-d", "--Dimensions", help="number of dimensions of the word2vec model (default=500)",
                     metavar="number_of_dimensions", default=500, type=int)
 parser.add_argument("-s", "--Size", help="size of window used for word2vec model training (default=10)",
                     metavar="window_size", default=10, type=int)
