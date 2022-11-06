@@ -26,8 +26,8 @@ The scripts were tested using the following software:
 
 ## 1. Semantic Relatedness Model training using a Wikipedia Corpus
 
-Pre-trained Semantic Relatedness Models can be downloaded from https://mega.nz/folder/RD0jlK5Q#Pd_aNR5rrpyXrzD-bv1YUg
-Please not, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
+Pre-trained Semantic Relatedness Models can be downloaded from https://mega.nz/folder/RD0jlK5Q#Pd_aNR5rrpyXrzD-bv1YUg  
+Please note, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
 
 If a Semantic Relatedness Model is required for a different language, it can be also trained individually following this procedure:
 
