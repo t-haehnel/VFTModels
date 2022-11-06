@@ -27,7 +27,7 @@ The scripts were tested using the following software:
 ## 1. Semantic Relatedness Model training using a Wikipedia Corpus
 
 Pretrained Semantic Relatedness Models can be downloaded from **Todo**.
-However, Semantic Relatedness Models can be also trained individuall, e.g. for other languages:
+However, Semantic Relatedness Models can be also trained individuall, e.g. for other languages, following this procedure:
 
 First, download a Wikipedia Corpus. Thus, go to from https://dumps.wikimedia.org/backup-index.html and click the link for your language (e.g. enwiki for English Wikipedia). Then locate the correct Wikipedia Corpus (named ...-pages-articles.xml.bz2, e.g. enwiki-20221020-pages-articles.xml.bz2) and download it to your computer.
 
@@ -58,7 +58,22 @@ The following parameters can be used with the script:
 
 ## 2. Analyzing the words of a Verbal Fluency Task (VFT) using a Semantic Relatedness Model
 
-to do
+After downloading or self-training a Semantic Reladetdness Model (see chapter above), this model can be used to identify clusters in the words produced by a Verbal Fluency Tasks.
+
+A short tutorial can be found in the Jupyter Notebook file example/Example.ipynb.
+
+After importing the Word2VecModel module, the Semantic Relatedness Model can be initialized:
+
+    from clustering_word2vec import Word2VecModel
+    model = Word2VecModel()
+    model.load_wv("enwiki-20221020-pages-articles.kv")
+
+The file name of the Semantic Relatedness Model *enwiki-20221020-pages-articles.kv* needs to be updated to the downloaded or self-trained model file.
+The clusters can be identified using:
+
+    model.calculate_clusterids(words, sim_threshold=threshold)
+
+The parameter *threshold* defines the pairwise semantic relatedness threshold which defines whether two words belong to a cluster or not. The value 0.3 should be used for phonematic VFTs and 0.4 for semantic VFTs. The parameter *words* needs to be a pd.DataFrame with a column *words* which contains all words which were produced in one VFT. A pd.DataFrame will be returned which contains another column indicating the clusters. All words sharing the same ID in this column are part of the same cluster.  
 
 ## 3. Analyzing the words of a semantic Verbal Fluency Task (VFT) using traditional list-based clustering
 
