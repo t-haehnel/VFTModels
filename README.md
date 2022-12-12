@@ -2,15 +2,15 @@
 
 Verbal Fluency Task Analysis Tool using traditional rule-based, list-based and a novel **semantic relatedness method**.
 
-This Github repository contains the code of the publication **XXXX**. Please refer to this publication for further details.
+This Github repository contains the code of the publication **XXXX** (will be updated after publication). Please refer to this publication for further details.
 
-When using this software, please cite the work as: **XXXX**
+When using this software, please cite the work as: **XXXX** (will be updated after publication)
 
 The code of this repository should allow you to:
 1. train a Semantic Relatedness Model using a Wikipedia Corpus
 2. Analyze the words of a Verbal Fluency Task (VFT) using a Semantic Relatedness Model
-3. Analyze the words of a Semantic Verbal Fluency Task (VFT) using traditional list-based clustering
-4. Analyze the words of a Phonematic Verbal Fluency Task (VFT) using traditional rule-based clustering
+3. Analyze the words of a Semantic Verbal Fluency Task using traditional list-based clustering
+4. Analyze the words of a Phonematic Verbal Fluency Task using traditional rule-based clustering
 
 # Requirements
 
@@ -26,7 +26,7 @@ The scripts were tested using the following software:
 
 ## 1. Semantic Relatedness Model training using a Wikipedia Corpus
 
-Pre-trained Semantic Relatedness Models can be downloaded from https://mega.nz/folder/RD0jlK5Q#Pd_aNR5rrpyXrzD-bv1YUg  
+Pre-trained Semantic Relatedness Models can be obtained from: Hähnel, Tom. (2022). multilanguage semantic relatedness models for verbal fluency tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321
 Please note, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
 
 If a Semantic Relatedness Model is required for a different language, it can be also trained individually following this procedure:
