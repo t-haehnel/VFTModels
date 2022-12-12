@@ -26,7 +26,10 @@ The scripts were tested using the following software:
 
 ## 1. Semantic Relatedness Model training using a Wikipedia Corpus
 
-Pre-trained Semantic Relatedness Models can be obtained from: Hähnel, Tom. (2022). multilanguage semantic relatedness models for verbal fluency tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321
+Pre-trained Semantic Relatedness Models can be obtained from:  
+
+**Hähnel, Tom. (2022). multilanguage semantic relatedness models for verbal fluency tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321**
+
 Please note, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
 
 If a Semantic Relatedness Model is required for a different language, it can be also trained individually following this procedure:
@@ -82,7 +85,7 @@ The parameter *threshold* defines the pairwise semantic relatedness threshold wh
 
 To compare the clustering results of the new Semantic Relatedness Model with traditional clustering methods, we implemented also traditional rule-based and list-based clustering methods. The algorithms are based on the publication of Troyer et al.:
 
-**1. Troyer, A. K., Moscovitch, M. & Winocur, G. Clustering and switching as two components of verbal fluency: Evidence from younger and older healthy adults. Neuropsychology 11, 138–146 (1997). DOI: 10.1037/0894-4105.11.1.138**
+**Troyer, A. K., Moscovitch, M. & Winocur, G. Clustering and switching as two components of verbal fluency: Evidence from younger and older healthy adults. Neuropsychology 11, 138–146 (1997). DOI: 10.1037/0894-4105.11.1.138**
 
 The traditional list-based clustering is based on thematic lists of animals. These lists need to be provided as a .csv file. An German example can be found in the file "database/de/animal_categories.csv". The file requires a column with the header *category* and a column with the header *word*. 
 
