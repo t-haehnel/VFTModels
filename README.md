@@ -28,7 +28,7 @@ The scripts were tested using the following software:
 
 Pre-trained Semantic Relatedness Models can be obtained from:  
 
-**Hähnel, Tom. (2022). multilanguage semantic relatedness models for verbal fluency tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321**
+**Hähnel, Tom. (2022). Multilanguage Semantic Relatedness Models for Verbal Fluency Tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321**
 
 Please note, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
 
