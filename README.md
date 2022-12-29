@@ -2,15 +2,15 @@
 
 Verbal Fluency Task Analysis Tool using traditional rule-based, list-based and a novel **semantic relatedness method**.
 
-This GitHub repository contains the code referred in the publication **XXXX** (will be updated after acceptance of the paper). Please refer to this publication for further details.
+This Github repository contains the code of the publication **XXXX**. Please refer to this publication for further details.
 
-When using this software, please cite the work as: **XXXX** (will be updated after acceptance of the paper)
+When using this software, please cite the work as: **XXXX**
 
 The code of this repository should allow you to:
-1. Train a semantic relatedness model using a Wikipedia corpus
-2. Analyze the words of a verbal fluency task (VFT) using a semantic relatedness model
-3. Analyze the words of a semantic verbal fluency task using traditional list-based clustering
-4. Analyze the words of a phonematic verbal fluency task using traditional rule-based clustering
+1. train a Semantic Relatedness Model using a Wikipedia Corpus
+2. Analyze the words of a Verbal Fluency Task (VFT) using a Semantic Relatedness Model
+3. Analyze the words of a Semantic Verbal Fluency Task (VFT) using traditional list-based clustering
+4. Analyze the words of a Phonematic Verbal Fluency Task (VFT) using traditional rule-based clustering
 
 # Requirements
 
@@ -24,30 +24,27 @@ The scripts were tested using the following software:
 
 # How to use
 
-## 1. Semantic Relatedness Model Training using a Wikipedia Corpus
+## 1. Semantic Relatedness Model training using a Wikipedia Corpus
 
-Pre-trained semantic relatedness models can be obtained from:  
+Pre-trained Semantic Relatedness Models can be downloaded from https://mega.nz/folder/RD0jlK5Q#Pd_aNR5rrpyXrzD-bv1YUg
+Please not, that each Semantic Relatedness Model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name, only different file name extensions and needs to be stored within the same directory.
 
-**Hähnel, Tom. (2022). Multilanguage Semantic Relatedness Models for Verbal Fluency Tasks. Zenodo. https://doi.org/10.5281/zenodo.7429321**
+If a Semantic Relatedness Model is required for a different language, it can be also trained individually following this procedure:
 
-Please note that each semantic relatedness model is composed of two files (one .kv and one .kv.vectors.npy file). Both files need to have the same base name (except the different file name extensions) and need to be stored within the same directory.
+First, download a Wikipedia Corpus. Thus, visit https://dumps.wikimedia.org/backup-index.html and click the link for your desired language (e.g. enwiki for English Wikipedia). Then locate the correct Wikipedia Corpus (named ...-pages-articles.xml.bz2, e.g. enwiki-20221020-pages-articles.xml.bz2) and download it.
 
-If a semantic relatedness model is required for a different language, it can be also trained individually following this procedure:
-
-First, download the correct Wikipedia corpus. Thus, visit https://dumps.wikimedia.org/backup-index.html and click the link for your desired language (e.g. enwiki for English Wikipedia). Then locate the correct Wikipedia corpus (named ...-pages-articles.xml.bz2, e.g. enwiki-20221020-pages-articles.xml.bz2) and download it.
-
-To train the model, the algorithm first preprocesses the Wikipedia corpus and saves the preprocessed corpus as a .txt file. 
+To train the model, the algorithm first preprocesses the Wikipedia Corpus and saves the preprocessed corpus as a .txt file. 
 
 When running the modeltraining_word2vec.py script you have to specify the following filenames by parameters:
 * The name/path of the Wikipedia corpus (e.g. enwiki-20221020-pages-articles.xml.bz2)
-* The name/path where the preprocessed file should be saved (e.g. enwiki-20221020-pages-articles.txt). If the file does already exist, it will be used and not recreated.
+* The name/path where the preprocessed file should be saved (e.g. enwiki-20221020-pages-articles.txt). If the file does already exists, it will be used and not recreated.
 * The name/path of the output file, i.e. the trained model (e.g. enwiki-20221020-pages-articles.kv). The second .kv.vectors.npy file will be created within the same directory.
 
-Now, to train a new semantic relatedness model, execute the modeltraining_word2vec.py using python and replace the file names accordingly:
+Now, to train a new Semantic Relatedness Model, execute the modeltraining_word2vec.py with python and replace the file names accordingly:
 
     python modeltraining_word2vec.py -i dewiki-20221020-pages-articles.xml.bz2 -p dewiki-20221020-pages-articles.txt -o dewiki-20221020-pages-articles.kv
     
-The script will need some hours of computation time and print the progress after creating the preprocessed file.
+The script will need some hours of computation time and print some progress after creating the preprocessed file.
 
 The following parameters can be used with the script:
 
@@ -61,19 +58,19 @@ The following parameters can be used with the script:
     -m minimum_word_count, --Min minimum_word_count: minimum word count used for word2vec model training (default=5)  
     -a algorithm_type, --Algorithm algorithm_type: algorithm used for word2vec model training (default=1; 1 for skip-gram; 0 for CBOW)  
 
-## 2. Analyzing the Words of a Verbal Fluency Task (VFT) using a Semantic Relatedness Model
+## 2. Analyzing the words of a Verbal Fluency Task (VFT) using a Semantic Relatedness Model
 
-After downloading or self-training a semantic relatedness model (see chapter above), this model can be used to identify clusters in the words produced by a VFT.
+After downloading or self-training a Semantic Reladetdness Model (see chapter above), this model can be used to identify clusters in the words produced by a Verbal Fluency Tasks.
 
 A short tutorial can be found in the Jupyter Notebook file example/Example.ipynb.
 
-After importing the Word2VecModel module, the semantic relatedness model can be initialized:
+After importing the Word2VecModel module, the Semantic Relatedness Model can be initialized:
 
     from clustering_word2vec import Word2VecModel
     model = Word2VecModel()
     model.load_wv("enwiki-20221020-pages-articles.kv")
 
-The file name of the semantic relatedness model *enwiki-20221020-pages-articles.kv* needs to be updated to the downloaded or self-trained model file name/location. Also, the second model with the extension .kv.vectors.npy (e.g. *enwiki-20221020-pages-articles.kv.vectors.npy*) needs to be stored in the same directory.
+The file name of the Semantic Relatedness Model *enwiki-20221020-pages-articles.kv* needs to be updated to the downloaded or self-trained model file. Also, the second model with the extension .kv.vectors.npy (e.g. *enwiki-20221020-pages-articles.kv.vectors.npy*) needs to be stored in the same directory.
 
 After initializing the model, the clusters can be identified using:
 
@@ -81,13 +78,13 @@ After initializing the model, the clusters can be identified using:
 
 The parameter *threshold* defines the pairwise semantic relatedness threshold which defines whether two words belong to a cluster or not. The value 0.3 should be used for phonematic VFTs and 0.4 for semantic VFTs. The parameter *words* needs to be a pd.DataFrame with a column *words* which contains all words produced in one VFT. A pd.DataFrame will be returned which contains another column indicating the clusters. All words sharing the same ID in this column are considered as part of the same cluster.  
 
-## 3. Analyzing the Words of a Semantic Verbal Fluency Task (VFT) using Traditional List-based Clustering
+## 3. Analyzing the words of a Semantic Verbal Fluency Task (VFT) using traditional list-based clustering
 
-To compare the clustering results of the new Semantic Relatedness Model with traditional clustering methods, we implemented also traditional rule-based and list-based clustering methods. The rules are based on the publication of Troyer et al.:
+To compare the clustering results of the new Semantic Relatedness Model with traditional clustering methods, we implemented also traditional rule-based and list-based clustering methods. The algorithms are based on the publication of Troyer et al.:
 
-**Troyer, A. K., Moscovitch, M. & Winocur, G. Clustering and switching as two components of verbal fluency: Evidence from younger and older healthy adults. Neuropsychology 11, 138–146 (1997). DOI: 10.1037/0894-4105.11.1.138**
+**1. Troyer, A. K., Moscovitch, M. & Winocur, G. Clustering and switching as two components of verbal fluency: Evidence from younger and older healthy adults. Neuropsychology 11, 138–146 (1997). DOI: 10.1037/0894-4105.11.1.138**
 
-The traditional list-based clustering is based on thematic lists of animals. These lists need to be provided as a .csv file. A German example can be found in the file "database/de/animal_categories.csv". The file requires a column with the header *category* and a column with the header *word*. 
+The traditional list-based clustering is based on thematic lists of animals. These lists need to be provided as a .csv file. An German example can be found in the file "database/de/animal_categories.csv". The file requires a column with the header *category* and a column with the header *word*. 
 
 A short tutorial how to perform list-based clustering can be found in the Jupyter Notebook file example/Example.ipynb.
 
@@ -103,9 +100,9 @@ After initializing the model, the clusters can be identified using:
 The parameter *words* needs to be a pd.DataFrame with a column *words* which contains all words which were produced in one VFT. A pd.DataFrame will be returned which contains another column indicating the clusters. All words sharing the same ID in this column are considered as part of the same cluster.  
 
 
-## 4. Analyzing the Words of a Phonematic Verbal Fluency Task (VFT) using Traditional Rule-based Clustering
+## 4. Analyzing the words of a Phonematic Verbal Fluency Task (VFT) using traditional rule-based clusterin
 
-The traditional rule-based clustering is based on phonematic rules shared by sequential words. These rules need to be stored in a database. A German example can be found in the file "database/de/phonematic_pairs.csv". The file requires a column *word1* and *word2* where each word pair produced by a patient needs to be stored. Each word pair needs to be stored only once. For each word pair, the word occurring first in the alphabet should be word1 and the other word should be treated as word2. Additionally, the file requires 4 more rows: *first_two*, *rhyme*, *vowel_diff_only*, *homonyms* which indicate the four rules used for identifying clusters. The value *1* indicates that the rule is fulfilled and *0* indicates that it is not.  
+The traditional rule-based clustering is based on phonematic rules shared by sequential words. These rules need to be stored in a database. An German example can be found in the file "database/de/phonematic_pairs.csv". The file requires a column *word1* and *word2* where each word pair produced by a patient needs to be stored. Each word pair needs to be stored only once. For each word pair, the word occuring first in the alphabet should be word1 and the other word should be treated as word2. Additionally, the file requires 4 more rows: *first_two*, *rhyme*, *vowel_diff_only*, *homonyms* which indicate the four rules used for identifying clusters. The value *1* indicates that the rule is fulfilled and *0* indicates that it is not.  
 
 A short tutorial how to perform list-based clustering can be found in the Jupyter Notebook file example/Example.ipynb.
 

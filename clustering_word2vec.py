@@ -148,10 +148,10 @@ class Word2VecModel:
         algorithm is used, this value will we ignored
         :param clustering_type: used clustering-mechanism (possible values are: 'fixed_chain', 'fixed_cluster',
         'dynamic_chain', 'dynamic_cluster') See Linz et. al 2017 for details.
-        :return: the given pd.DataFrame with 2 additional columns: cluster (indicating the cluster ID), rel_before
+        :return: the given pd.DataFrame with 1 additional column: cluster (indicating the cluster ID)
         """
         cluster_ids = [np.NAN for _ in intervals.index]
-        rels = [np.NAN for _ in intervals.index]
+        cluster_ids[0] = 0
         cluster_id = 0
 
         intervals.reset_index(drop=True, inplace=True)
@@ -168,34 +168,24 @@ class Word2VecModel:
         # else:
             # print("using fixed similarity threshold " + str(sim_threshold) + " for " + clustering_type)
 
-        for i in range(0, intervals.shape[0] - 1):
+        for i in range(1, intervals.shape[0]):
 
             if clustering_type == "dynamic_chain" or clustering_type == "fixed_chain":
                 try:
-                    pairwise_relatedness = self.cosine_similarity(intervals.loc[i, "word"],
-                                                        intervals.loc[i + 1, "word"])
-                    rels[i+1] = pairwise_relatedness
-                    is_cluster = pairwise_relatedness > sim_threshold
+                    is_cluster = self.cosine_similarity(intervals.loc[i, "word"],
+                                                        intervals.loc[i - 1, "word"]) > sim_threshold
                 except KeyError:
                     is_cluster = False
-                    print("WARNING: word pair not found: " + intervals.loc[i, "word"] + " - " + intervals.loc[i + 1, "word"])
+                    print("WARNING: word pair not found: " + intervals.loc[i, "word"] + " - " + intervals.loc[i - 1, "word"])
             else:
                 raise NotImplementedError("clusterin_type " + clustering_type + " not implemented yet!")
 
-            if is_cluster:
-                if i == 0:
-                    cluster_id += 1  # new cluster
-                    cluster_ids[i] = cluster_id  # always a new cluster
-                    cluster_ids[i + 1] = cluster_id
-                else:
-                    if not np.isnan(cluster_ids[i]):
-                        cluster_ids[i + 1] = cluster_ids[i]  # same cluster as last element
-                    else:
-                        cluster_id += 1  # new cluster
-                        cluster_ids[i] = cluster_id
-                        cluster_ids[i + 1] = cluster_id
+            if not is_cluster:
+                cluster_id += 1
 
-        return cluster_ids, rels
+            cluster_ids[i] = cluster_id
+
+        return cluster_ids
 
     def calculate_dynamic_threshold(self, intervals: pd.DataFrame) -> float:
         """

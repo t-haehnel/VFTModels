@@ -15,27 +15,24 @@ def get_cluster_statistics(words: pd.DataFrame) -> dict:
     # count cluster occurences
     cluster_size_dict = {}
     cluster_size_list = []
-    cluster_curr_id = np.NAN
+    cluster_curr_id = -1
     cluster_curr_count = 0
 
     words = words.copy().reset_index(drop=True)
 
     for i in range(0, words.shape[0] + 1):
         # store clusters at end of a cluster (-> at last position or if cluster id changes)
-        if (i == words.shape[0]) or (cluster_curr_id != words.loc[i]["cluster"]):
-            # store the cluster if size is > 1
-            if cluster_curr_count > 1:
-                if cluster_curr_count not in cluster_size_dict.keys():
-                    cluster_size_dict[cluster_curr_count] = 0
-                cluster_size_dict[cluster_curr_count] += 1
-                cluster_size_list.append(cluster_curr_count)
+        if (i > 0) and ((i == words.shape[0]) or (cluster_curr_id != words.loc[i]["cluster"])):
+            # store the cluster always
+            if (cluster_curr_count - 1) not in cluster_size_dict.keys():
+                cluster_size_dict[cluster_curr_count - 1] = 0
+            cluster_size_dict[cluster_curr_count - 1] += 1
+            cluster_size_list.append(cluster_curr_count - 1)
             # reset cluster counter
             cluster_curr_count = 0
 
-        # increase cluster size count if 1) there is a cluster (!= np.NAN) the first condition only prevents an error
-        # with the index when calculating the latter conditions
-        if (i < words.shape[0]) and not np.isnan(words.loc[i]["cluster"]):
-            cluster_curr_count += 1
+        # increase cluster size count
+        cluster_curr_count += 1
 
         if i < words.shape[0]:
             cluster_curr_id = words.loc[i]["cluster"]
@@ -54,5 +51,6 @@ def get_cluster_statistics(words: pd.DataFrame) -> dict:
     return {"mean": mean_size,
             "median": median_size,
             "max": max_size,
-            "number_of_clusters": cluster_count,
+            "count": max(0, cluster_count - 1), # number of switches, minimum 0
             "count_per_size": cluster_size_dict}
+

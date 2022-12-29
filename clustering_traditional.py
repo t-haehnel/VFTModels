@@ -147,6 +147,48 @@ class TraditionalClustering:
         categories2 = self.semantic_categories[self.semantic_categories["word"] == word2]["category"].values
         return np.intersect1d(categories1, categories2)
 
+    def get_commonrules_from_wordpair(self, word1: str, word2: str, printwarning: bool = True) -> set:
+        """
+        Returns all fullfilled phonematic rules of a word pair
+        :param word1: the first word
+        :param word2: the second word
+        :param printwarning: bool, whether to print a warning if one word is not found in the phonematic pair list
+        :return: set of all fullfilled rules
+        """
+
+        word1 = word1.lower()
+        word2 = word2.lower()
+
+        # sort words
+        if word1 > word2:
+            tmp = word1
+            word1 = word2
+            word2 = tmp
+
+        # check if words do exist
+        if printwarning:
+            notfound = self.check_wordlist_phonematic(pd.Series([word1, word2]))
+            if notfound.shape[0] > 0:
+                print("WARNING: words not found in phonemic pair list: ")
+                print(notfound)
+
+        # check if words are a pair
+        search_res = self.phonematic_pairs.loc[(self.phonematic_pairs["word1"] == word1) &
+                                               (self.phonematic_pairs["word2"] == word2)]
+        # pair not found
+        if search_res.shape[0] != 1:
+            if printwarning:
+                print("WARNING: word pair is not in phonemic pair list: ")
+            return {}
+
+        # else check which rules are fullfilled
+        shared_rules = []
+        for rule in ["first_two", "rhyme", "vowel_diff_only", "homonyms"]:
+            if search_res[rule].values[0] == 1:
+                shared_rules.append(rule)
+
+        return set(shared_rules)
+
     def check_same_category(self, word1: str, word2: str, printwarning: bool = True) -> bool:
         """
         Checks if both words are part of any same semantic category
@@ -243,10 +285,12 @@ class TraditionalClustering:
         :return: the given pd.DataFrame with 2 additional columns: cluster (indicating the cluster ID) +
         category_before (indicating the categories shared with the row before)
         """
-        cluster_id = 0
         intervals.reset_index(drop=True, inplace=True)
         intervals["cluster"] = np.NAN
         intervals["category_before"] = ""
+
+        cluster_id = 0
+        curr_cluster_lists = {}
 
         # if printwartning=True -> check if all words exist
         if printwarning:
@@ -255,25 +299,17 @@ class TraditionalClustering:
                 if printwarning and word not in self.semantic_categories["word"].values and word != "":
                     print("WARNING: " + word + " does not exist in semantic category list")
 
-        for i in range(0, intervals.shape[0] - 1):
-            is_cluster = self.check_same_category(intervals.loc[i, "word"], intervals.loc[i + 1, "word"],
-                                                  printwarning=False)
-            same_categories = self.get_categories_from_wordpair(intervals.loc[i + 1, "word"],
-                                                                intervals.loc[i, "word"], printwarning=False)
+        for i in range(0, intervals.shape[0]):
+            curr_lists = self.get_categories_from_word(intervals.loc[i, "word"])
 
-            if is_cluster:
-                intervals.loc[i + 1, "category_before"] = ",".join(same_categories)
-                if i == 0:
-                    cluster_id += 1  # new cluster
-                    intervals.loc[i, "cluster"] = cluster_id  # always a new cluster
-                    intervals.loc[i + 1, "cluster"] = cluster_id
-                else:
-                    if not np.isnan(intervals.loc[i, "cluster"]):
-                        intervals.loc[i + 1, "cluster"] = intervals.loc[i, "cluster"]  # same cluster as last element
-                    else:
-                        cluster_id += 1  # new cluster
-                        intervals.loc[i, "cluster"] = cluster_id
-                        intervals.loc[i + 1, "cluster"] = cluster_id
+            if len(set(curr_lists).intersection(curr_cluster_lists)) > 0:
+                curr_cluster_lists = set(curr_lists).intersection(curr_cluster_lists)
+                intervals.loc[i, "category_before"] = ", ".join(curr_cluster_lists)
+            else:
+                curr_cluster_lists = curr_lists
+                cluster_id += 1
+
+            intervals.loc[i, "cluster"] = cluster_id
 
         return intervals
 
@@ -286,9 +322,10 @@ class TraditionalClustering:
         :param intervals: pd.DataFrame with column 'words'
         :return: the given pd.DataFrame with 1 additional column: cluster (indicating the cluster ID)
         """
+
         intervals.reset_index(drop=True, inplace=True)
-        cluster_id = 0
         intervals["cluster"] = np.NAN
+        intervals["rule_before"] = ""
 
         # if printwartning=True -> check if all words exist
         if printwarning:
@@ -297,21 +334,27 @@ class TraditionalClustering:
                 print("WARNING: words do not exist in phonemic pair list: ")
                 print(not_found)
 
-        for i in range(0, intervals.shape[0] - 1):
-            is_cluster = self.check_phonemic_pair(intervals.loc[i, "word"], intervals.loc[i + 1, "word"],
-                                                  printwarning=False)
+        cluster_id = 0
+        curr_cluster_lists = {}
+        intervals.loc[0, "cluster"] = cluster_id
 
-            if is_cluster:
-                if i == 0:
-                    cluster_id += 1  # new cluster
-                    intervals.loc[i, "cluster"] = cluster_id  # always a new cluster
-                    intervals.loc[i + 1, "cluster"] = cluster_id
-                else:
-                    if not np.isnan(intervals.loc[i, "cluster"]):
-                        intervals.loc[i + 1, "cluster"] = intervals.loc[i, "cluster"]  # same cluster as last element
+        for i in range(1, intervals.shape[0]):
+            curr_lists = self.get_commonrules_from_wordpair(intervals.loc[i - 1, "word"], intervals.loc[i, "word"])
+
+            if len(curr_lists) == 0:
+                cluster_id +=1
+                curr_cluster_lists = {}
+            else:
+                if len(curr_cluster_lists) > 0:
+                    if len(curr_lists.intersection(curr_cluster_lists)) > 0:
+                        curr_cluster_lists = curr_lists.intersection(curr_cluster_lists)
                     else:
-                        cluster_id += 1  # new cluster
-                        intervals.loc[i, "cluster"] = cluster_id
-                        intervals.loc[i + 1, "cluster"] = cluster_id
+                        cluster_id += 1
+                        curr_cluster_lists = {}
+                else:
+                    curr_cluster_lists = curr_lists
+
+            intervals.loc[i, "rule_before"] = ", ".join(curr_cluster_lists)
+            intervals.loc[i, "cluster"] = cluster_id
 
         return intervals
