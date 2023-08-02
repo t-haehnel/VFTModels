@@ -2,13 +2,12 @@
 
 Verbal Fluency Task Analysis Tool using traditional rule-based, list-based and a novel **semantic relatedness method**.
 
-This Github repository contains the code of the publication **Hähnel et al 2023 (forthcoming/in press, DOI: 10.2196/46021)**. Please refer to this publication for further details.
+This Github repository contains the code of the publication **Hähnel et al 2023 (DOI: 10.2196/46021)**. Please refer to this publication for further details.
 
 When using this software, please cite the work as:  
 
-**Hähnel T, Feige T, Kunze J, Epler A, Frank A, Bendig J, Schnalke N, Wolz M, Themann P, Falkenburger B  
-Automatic Cluster Analysis using a Semantic Relatedness Model for the Phonematic and Semantic Verbal Fluency Task in Parkinson's Disease: Results from a Prospective Multicenter Study  
-JMIR Neurotechnology. 08/06/2023:46021 (forthcoming/in press)**
+**Hähnel T, Feige T, Kunze J, Epler A, Frank A, Bendig J, Schnalke N, Wolz M, Themann P, Falkenburger B
+A Semantic Relatedness Model for the Automatic Cluster Analysis of Phonematic and Semantic Verbal Fluency Tasks Performed by People With Parkinson Disease: Prospective Multicenter Study. JMIR Neurotech 2023;2:e46021. doi: 10.2196/46021**
 
 The code of this repository should allow you to:
 1. train a Semantic Relatedness Model using a Wikipedia Corpus
